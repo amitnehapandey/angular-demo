@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { LoginComponent } from '../login/login.component';
 
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
@@ -16,11 +18,16 @@ export class HeaderComponent implements OnInit {
   promotion!: Promotion;
 
   constructor(private dishservice: DishService,
-    private promotionservice: PromotionService) { }
+    private promotionservice: PromotionService,
+    public dialog: MatDialog ) { }
 
   ngOnInit() {
     this.dish = this.dishservice.getFeaturedDish();
     this.promotion = this.promotionservice.getFeaturedPromotion();
+  }
+
+  openLoginForm() {
+    this.dialog.open(LoginComponent, {width: '500px', height: '450px'});
   }
 
 }

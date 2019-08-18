@@ -22,10 +22,7 @@ export class HeaderComponent implements OnInit {
     public dialog: MatDialog ) { }
 
   ngOnInit() {
-    this.dishservice.getFeaturedDish()
-    .then(dish => this.dish =dish);
-    this.promotionservice.getFeaturedPromotion()
-    .then(promotion =>this.promotion = promotion);
+    
   }
 
   openLoginForm() {
